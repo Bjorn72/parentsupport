@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hjälp för iPhone och Mac</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <header class="topbar" aria-label="Mobil meny">
+        <button id="menuToggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobileMenu">
+          <span aria-hidden="true">☰</span>
+          <span>Meny</span>
+        </button>
+        <h1 class="topbar-title">Hjälp för iPhone och Mac</h1>
+      </header>
+
+      <aside class="sidebar" aria-label="Huvudmeny">
+        <h1 class="sidebar-title">Hjälp för iPhone och Mac</h1>
+        <nav>
+          <a href="#start" class="nav-item active" data-section="start"><span class="item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9h-5v-6H9v6H4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span><span class="item-label">Start</span></a>
+          <a href="#wifi" class="nav-item" data-section="wifi"><span class="item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 9a14 14 0 0 1 18 0M6 12a10 10 0 0 1 12 0M9 15a6 6 0 0 1 6 0M12 18h.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="item-label">Wi-Fi</span></a>
+          <a href="#notes" class="nav-item" data-section="notes"><span class="item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8h8M8 12h8M8 16h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="item-label">Anteckningar</span></a>
+          <a href="#restart" class="nav-item" data-section="restart"><span class="item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v6M8 6a8 8 0 1 0 8 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="item-label">Starta om enheten</span></a>
+          <a href="#mirror-tv" class="nav-item" data-section="mirror-tv" data-device-topic="iphone"><span class="item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="12" height="9" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M17 11h4v7h-8v-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="item-label">Spegla till TV</span></a>
+          <a href="#sound" class="nav-item" data-section="sound"><span class="item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 10h4l5-4v12l-5-4H4zM17 9a4 4 0 0 1 0 6M19 7a7 7 0 0 1 0 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="item-label">Justera ljudet</span></a>
+          <a href="#search" class="nav-item" data-section="search"><span class="item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 16l5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="item-label">Söka</span></a>
+          <a href="#programs" class="nav-item" data-section="programs" data-device-topic="mac"><span class="item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="4" width="6" height="6" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="4" y="14" width="6" height="6" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="14" width="6" height="6" rx="1" fill="none" stroke="currentColor" stroke-width="2"/></svg></span><span class="item-label">Program</span></a>
+          <a href="#screenshot" class="nav-item" data-section="screenshot"><span class="item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 4H5v4M15 4h4v4M9 20H5v-4M15 20h4v-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="item-label">Ta en skärmbild</span></a>
+          <a href="#send-screenshot" class="nav-item" data-section="send-screenshot" data-device-topic="iphone"><span class="item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6h16v10H8l-4 4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 9l3 2-3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="item-label">Skicka en skärmbild</span></a>
+          <a href="#contacts" class="nav-item" data-section="contacts"><span class="item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 19a7 7 0 0 1 14 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="item-label">Kontakter</span></a>
+          <a href="#delete-imessage" class="nav-item" data-section="delete-imessage"><span class="item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 9h6M10 12h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="item-label">Radera iMessage</span></a>
+        </nav>
+      </aside>
+
+      <nav id="mobileMenu" class="mobile-menu" aria-label="Mobil meny">
+        <a href="#start" class="nav-item active" data-section="start"><span class="item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9h-5v-6H9v6H4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span><span class="item-label">Start</span></a>
+        <a href="#wifi" class="nav-item" data-section="wifi"><span class="item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 9a14 14 0 0 1 18 0M6 12a10 10 0 0 1 12 0M9 15a6 6 0 0 1 6 0M12 18h.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="item-label">Wi-Fi</span></a>
+        <a href="#notes" class="nav-item" data-section="notes"><span class="item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8h8M8 12h8M8 16h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="item-label">Anteckningar</span></a>
+        <a href="#restart" class="nav-item" data-section="restart"><span class="item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v6M8 6a8 8 0 1 0 8 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="item-label">Starta om enheten</span></a>
+        <a href="#mirror-tv" class="nav-item" data-section="mirror-tv" data-device-topic="iphone"><span class="item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="12" height="9" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M17 11h4v7h-8v-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="item-label">Spegla till TV</span></a>
+        <a href="#sound" class="nav-item" data-section="sound"><span class="item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 10h4l5-4v12l-5-4H4zM17 9a4 4 0 0 1 0 6M19 7a7 7 0 0 1 0 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="item-label">Justera ljudet</span></a>
+        <a href="#search" class="nav-item" data-section="search"><span class="item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 16l5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="item-label">Söka</span></a>
+        <a href="#programs" class="nav-item" data-section="programs" data-device-topic="mac"><span class="item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="4" width="6" height="6" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="4" y="14" width="6" height="6" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="14" width="6" height="6" rx="1" fill="none" stroke="currentColor" stroke-width="2"/></svg></span><span class="item-label">Program</span></a>
+        <a href="#screenshot" class="nav-item" data-section="screenshot"><span class="item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 4H5v4M15 4h4v4M9 20H5v-4M15 20h4v-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="item-label">Ta en skärmbild</span></a>
+        <a href="#send-screenshot" class="nav-item" data-section="send-screenshot" data-device-topic="iphone"><span class="item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6h16v10H8l-4 4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 9l3 2-3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="item-label">Skicka en skärmbild</span></a>
+        <a href="#contacts" class="nav-item" data-section="contacts"><span class="item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 19a7 7 0 0 1 14 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="item-label">Kontakter</span></a>
+        <a href="#delete-imessage" class="nav-item" data-section="delete-imessage"><span class="item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 9h6M10 12h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="item-label">Radera iMessage</span></a>
+      </nav>
+
+      <main class="content" aria-label="Guideinnehåll">
+        <div class="content-header">
+          <h2 class="page-heading">Hjälp för iPhone och Mac</h2>
+          <div class="device-toggle" aria-label="Välj enhet">
+            <button type="button" class="device-button active" data-device-toggle="iphone" aria-pressed="true">iPhone</button>
+            <button type="button" class="device-button" data-device-toggle="mac" aria-pressed="false">Mac</button>
+          </div>
+        </div>
+
+        <section id="start" class="section active" data-section>
+          <h2>Vad behöver du hjälp med?</h2>
+          <p class="start-intro">Välj ett ämne i menyn eller tryck på en vanlig fråga här nedanför.</p>
+
+          <div id="pinnedTopicsBlock" class="start-group" hidden>
+            <h3>Fästa ämnen</h3>
+            <div id="pinnedTopicsList" class="topic-grid"></div>
+          </div>
+
+          <div class="start-group">
+            <h3>Vanliga frågor</h3>
+            <div class="topic-grid">
+              <button type="button" class="topic-button" data-section-target="wifi"><span class="item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 9a14 14 0 0 1 18 0M6 12a10 10 0 0 1 12 0M9 15a6 6 0 0 1 6 0M12 18h.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="item-label">Wi-Fi fungerar inte</span></button>
+              <button type="button" class="topic-button" data-section-target="notes"><span class="item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8h8M8 12h8M8 16h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="item-label">Hur öppnar jag Anteckningar?</span></button>
+              <button type="button" class="topic-button" data-section-target="restart"><span class="item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v6M8 6a8 8 0 1 0 8 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="item-label">Hur startar jag om enheten?</span></button>
+              <button type="button" class="topic-button" data-section-target="mirror-tv" data-device-topic="iphone"><span class="item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="12" height="9" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M17 11h4v7h-8v-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="item-label">Hur speglar jag till TV?</span></button>
+              <button type="button" class="topic-button" data-section-target="sound"><span class="item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 10h4l5-4v12l-5-4H4zM17 9a4 4 0 0 1 0 6M19 7a7 7 0 0 1 0 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="item-label">Hur justerar jag ljudet?</span></button>
+              <button type="button" class="topic-button" data-section-target="notes"><span class="item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8h8M8 12h8M8 16h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="item-label">Prata så att det blir text</span></button>
+              <button type="button" class="topic-button" data-section-target="search"><span class="item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 16l5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="item-label">Hur söker jag?</span></button>
+              <button type="button" class="topic-button" data-section-target="programs" data-device-topic="mac"><span class="item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="4" width="6" height="6" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="4" y="14" width="6" height="6" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="14" width="6" height="6" rx="1" fill="none" stroke="currentColor" stroke-width="2"/></svg></span><span class="item-label">Program</span></button>
+              <button type="button" class="topic-button" data-section-target="contacts"><span class="item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 19a7 7 0 0 1 14 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="item-label">Kontakter</span></button>
+            </div>
+          </div>
+          <p class="disclaimer">Den här sidan är en enkel hjälpsida och är inte kopplad till Apple.</p>
+        </section>
+
+        <section id="wifi" class="section" data-section>
+          <div class="section-top">
+            <h2>Wi-Fi fungerar inte</h2>
+            <button type="button" class="pin-button" data-pin-section="wifi">Fäst ämne</button>
+          </div>
+          <ol>
+            <li>Öppna Inställningar.</li>
+            <li>Tryck på Wi-Fi.</li>
+            <li>Kontrollera att Wi-Fi är påslaget.</li>
+            <li>Välj ditt nätverk i listan.</li>
+          </ol>
+        </section>
+
+        <section id="notes" class="section" data-section>
+          <div class="section-top">
+            <h2>Hur öppnar jag Anteckningar?</h2>
+            <button type="button" class="pin-button" data-pin-section="notes">Fäst ämne</button>
+          </div>
+          <div data-device-content="iphone">
+            <h3>iPhone</h3>
+            <ol>
+              <li>Gå till hemskärmen.</li>
+              <li>Leta efter appen Anteckningar.</li>
+              <li>Tryck på appen för att öppna den.</li>
+            </ol>
+          </div>
+          <div data-device-content="mac">
+            <h3>Mac</h3>
+            <ol>
+              <li>Öppna Anteckningar på din Mac.</li>
+              <li>Klicka på en anteckning i listan.</li>
+              <li>Börja skriva.</li>
+            </ol>
+          </div>
+
+          <h3>Radera en anteckning</h3>
+          <div data-device-content="iphone">
+            <ol>
+              <li>Öppna Anteckningar.</li>
+              <li>Svep åt vänster på anteckningen.</li>
+              <li>Tryck på Radera.</li>
+            </ol>
+          </div>
+          <div data-device-content="mac">
+            <ol>
+              <li>Öppna Anteckningar.</li>
+              <li>Markera anteckningen du vill ta bort.</li>
+              <li>Tryck på backsteg och bekräfta.</li>
+            </ol>
+          </div>
+
+          <h3>Skapa en mapp i Anteckningar</h3>
+          <div data-device-content="iphone">
+            <ol>
+              <li>Öppna Anteckningar.</li>
+              <li>Tryck på Ny mapp.</li>
+              <li>Ge mappen ett namn.</li>
+              <li>Tryck på Spara.</li>
+            </ol>
+          </div>
+          <div data-device-content="mac">
+            <ol>
+              <li>Öppna Anteckningar på Mac.</li>
+              <li>Klicka på Ny mapp.</li>
+              <li>Ge mappen ett namn.</li>
+              <li>Klicka på Skapa.</li>
+            </ol>
+          </div>
+
+          <h3>Prata så att det blir text</h3>
+          <div data-device-content="iphone">
+            <ol>
+              <li>Öppna ett textfält i Anteckningar.</li>
+              <li>Tryck på mikrofonen på tangentbordet.</li>
+              <li>Börja prata tydligt.</li>
+              <li>Tryck på mikrofonen igen när du är klar.</li>
+            </ol>
+          </div>
+          <div data-device-content="mac">
+            <ol>
+              <li>Öppna Anteckningar på Mac.</li>
+              <li>Klicka där du vill skriva.</li>
+              <li>Välj Redigera i menyn högst upp.</li>
+              <li>Klicka på Börja diktera.</li>
+              <li>Börja prata.</li>
+            </ol>
+            <p>Tips: Använd gärna hörlurar med mikrofon för bättre ljud.</p>
+          </div>
+        </section>
+
+        <section id="restart" class="section" data-section>
+          <div class="section-top">
+            <h2>Hur startar jag om enheten?</h2>
+            <button type="button" class="pin-button" data-pin-section="restart">Fäst ämne</button>
+          </div>
+          <div data-device-content="iphone">
+            <h3>iPhone</h3>
+            <ol>
+              <li>Håll in sidoknappen.</li>
+              <li>Håll samtidigt in en volymknapp.</li>
+              <li>Dra reglaget Stäng av.</li>
+              <li>Starta igen med sidoknappen.</li>
+            </ol>
+          </div>
+          <div data-device-content="mac">
+            <h3>Mac</h3>
+            <ol>
+              <li>Klicka på Apple-menyn.</li>
+              <li>Välj Starta om.</li>
+              <li>Klicka på Starta om igen.</li>
+            </ol>
+          </div>
+        </section>
+
+        <section id="mirror-tv" class="section" data-section data-device-topic="iphone">
+          <div class="section-top">
+            <h2>Hur speglar jag till TV?</h2>
+            <button type="button" class="pin-button" data-pin-section="mirror-tv">Fäst ämne</button>
+          </div>
+          <ol>
+            <li>Dra ner från övre högra hörnet på skärmen.</li>
+            <li>Tryck på Skärmdubblering.</li>
+            <li>Välj din TV i listan.</li>
+          </ol>
+          <p>Kontrollcenter är menyn med snabba inställningar.</p>
+        </section>
+
+        <section id="sound" class="section" data-section>
+          <div class="section-top">
+            <h2>Hur justerar jag ljudet?</h2>
+            <button type="button" class="pin-button" data-pin-section="sound">Fäst ämne</button>
+          </div>
+          <div data-device-content="iphone">
+            <h3>iPhone</h3>
+            <ol>
+              <li>Tryck på volymknapparna på sidan.</li>
+              <li>Öppna Kontrollcenter.</li>
+              <li>Dra reglaget för ljud upp eller ner.</li>
+            </ol>
+          </div>
+          <div data-device-content="mac">
+            <h3>Mac</h3>
+            <ol>
+              <li>Klicka på högtalarikonen i menyraden.</li>
+              <li>Dra reglaget upp eller ner.</li>
+              <li>Testa ljudet med valfri video eller musik.</li>
+            </ol>
+          </div>
+        </section>
+
+        <section id="search" class="section" data-section>
+          <div class="section-top">
+            <h2>Hur söker jag?</h2>
+            <button type="button" class="pin-button" data-pin-section="search">Fäst ämne</button>
+          </div>
+          <div data-device-content="iphone">
+            <h3>iPhone</h3>
+            <ol>
+              <li>Svep ner på hemskärmen.</li>
+              <li>Eller tryck på förstoringsglaset.</li>
+              <li>Skriv det du letar efter.</li>
+              <li>Tryck på appen eller resultatet.</li>
+            </ol>
+          </div>
+          <div data-device-content="mac">
+            <h3>Mac</h3>
+            <ol>
+              <li>Tryck på kommandoknappen (⌘) och mellanslag.</li>
+              <li>Skriv det du letar efter.</li>
+              <li>Tryck på programmet eller dokumentet i listan.</li>
+            </ol>
+            <p>Spotlight är Macens sökfunktion.</p>
+          </div>
+        </section>
+
+        <section id="screenshot" class="section" data-section>
+          <div class="section-top">
+            <h2>Hur tar jag en skärmbild?</h2>
+            <button type="button" class="pin-button" data-pin-section="screenshot">Fäst ämne</button>
+          </div>
+          <div data-device-content="iphone">
+            <h3>iPhone</h3>
+            <ol>
+              <li>Tryck på sidoknappen.</li>
+              <li>Tryck samtidigt på volym upp.</li>
+              <li>Släpp knapparna.</li>
+              <li>Skärmbilden visas nere i hörnet.</li>
+            </ol>
+          </div>
+          <div data-device-content="mac">
+            <h3>Mac</h3>
+            <ol>
+              <li>Tryck på kommandoknappen (⌘), shift och siffran 4 samtidigt.</li>
+              <li>Muspekaren blir ett kors.</li>
+              <li>Dra över området du vill ta bild på.</li>
+              <li>Skärmbilden sparas på skrivbordet.</li>
+            </ol>
+          </div>
+        </section>
+
+        <section id="send-screenshot" class="section" data-section data-device-topic="iphone">
+          <div class="section-top">
+            <h2>Hur skickar jag en skärmbild i ett meddelande?</h2>
+            <button type="button" class="pin-button" data-pin-section="send-screenshot">Fäst ämne</button>
+          </div>
+          <ol>
+            <li>Ta en skärmbild.</li>
+            <li>Tryck på bilden nere i hörnet.</li>
+            <li>Tryck på dela-knappen.</li>
+            <li>Välj Meddelanden.</li>
+          </ol>
+        </section>
+
+        <section id="contacts" class="section" data-section>
+          <div class="section-top">
+            <h2>Kontakter</h2>
+            <button type="button" class="pin-button" data-pin-section="contacts">Fäst ämne</button>
+          </div>
+          <div data-device-content="iphone">
+            <h3>Lägg till en kontakt</h3>
+            <ol>
+              <li>Öppna appen Kontakter.</li>
+              <li>Tryck på plus-knappen.</li>
+              <li>Skriv namn och telefonnummer.</li>
+              <li>Tryck på Klar.</li>
+            </ol>
+
+            <h3>Radera en kontakt</h3>
+            <ol>
+              <li>Öppna appen Kontakter.</li>
+              <li>Öppna kontakten du vill ta bort.</li>
+              <li>Tryck på Redigera och sedan Radera kontakt.</li>
+            </ol>
+          </div>
+          <div data-device-content="mac">
+            <h3>Lägg till en kontakt</h3>
+            <ol>
+              <li>Öppna appen Kontakter på Mac.</li>
+              <li>Klicka på plus-knappen.</li>
+              <li>Skriv namn och telefonnummer.</li>
+              <li>Klicka på Klar.</li>
+            </ol>
+
+            <h3>Radera en kontakt</h3>
+            <ol>
+              <li>Öppna appen Kontakter.</li>
+              <li>Markera kontakten du vill ta bort.</li>
+              <li>Tryck på backsteg och bekräfta.</li>
+            </ol>
+          </div>
+        </section>
+
+        <section id="programs" class="section" data-section data-device-topic="mac">
+          <div class="section-top">
+            <h2>Program</h2>
+            <button type="button" class="pin-button" data-pin-section="programs">Fäst ämne</button>
+          </div>
+          <ol>
+            <li>Tryck på kommandoknappen (⌘) och mellanslag.</li>
+            <li>Skriv namnet på programmet.</li>
+            <li>Tryck på programmet i listan.</li>
+          </ol>
+          <p>Du kan också hitta program genom att klicka på Appar i raden längst ner på skärmen.</p>
+        </section>
+
+        <section id="delete-imessage" class="section" data-section>
+          <div class="section-top">
+            <h2>Hur raderar jag gamla iMessage?</h2>
+            <button type="button" class="pin-button" data-pin-section="delete-imessage">Fäst ämne</button>
+          </div>
+          <ol>
+            <li>Öppna Meddelanden.</li>
+            <li>Svep åt vänster på ett meddelande.</li>
+            <li>Tryck på Radera.</li>
+          </ol>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
