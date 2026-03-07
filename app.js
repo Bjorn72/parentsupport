@@ -11,8 +11,8 @@ const deviceButtons = Array.from(document.querySelectorAll('[data-device-toggle]
 const deviceContentBlocks = Array.from(document.querySelectorAll('[data-device-content]'));
 const deviceTopicElements = Array.from(document.querySelectorAll('[data-device-topic]'));
 
-const PINNED_STORAGE_KEY = 'parentSupportPinnedSections';
-const DEVICE_STORAGE_KEY = 'parentSupportSelectedDevice';
+const PINNED_STORAGE_KEY = 'supportPinnedSections';
+const DEVICE_STORAGE_KEY = 'supportSelectedDevice';
 const DEFAULT_DEVICE = 'iphone';
 const PINNED_SECTION_ID_MAP = {
   'voice-text': 'notes',
