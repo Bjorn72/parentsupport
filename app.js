@@ -10,9 +10,10 @@ const pinnedTopicsList = document.getElementById('pinnedTopicsList');
 const deviceButtons = Array.from(document.querySelectorAll('[data-device-toggle]'));
 const deviceContentBlocks = Array.from(document.querySelectorAll('[data-device-content]'));
 const deviceTopicElements = Array.from(document.querySelectorAll('[data-device-topic]'));
+const guideActionElements = Array.from(document.querySelectorAll('[data-guide-action]'));
 
 const PINNED_STORAGE_KEY = 'supportPinnedSections';
-const DEVICE_STORAGE_KEY = 'supportSelectedDevice';
+const DEVICE_SESSION_STORAGE_KEY = 'supportSessionDevice';
 const DEFAULT_DEVICE = 'iphone';
 const PINNED_SECTION_ID_MAP = {
   'voice-text': 'notes',
@@ -65,9 +66,23 @@ function getSectionTitle(sectionId) {
   return heading ? heading.textContent.trim() : sectionId;
 }
 
-function loadSelectedDevice() {
+function detectInitialDevice() {
+  const userAgent = navigator.userAgent || '';
+
+  if (/iphone|ipod/i.test(userAgent)) {
+    return 'iphone';
+  }
+
+  if (/macintosh/i.test(userAgent) && !/iphone|ipad|ipod/i.test(userAgent)) {
+    return 'mac';
+  }
+
+  return DEFAULT_DEVICE;
+}
+
+function loadSessionDevice() {
   try {
-    const storedDevice = localStorage.getItem(DEVICE_STORAGE_KEY);
+    const storedDevice = sessionStorage.getItem(DEVICE_SESSION_STORAGE_KEY);
     if (storedDevice === 'iphone' || storedDevice === 'mac') {
       return storedDevice;
     }
@@ -75,12 +90,12 @@ function loadSelectedDevice() {
     // Ignore storage failures and use default value.
   }
 
-  return DEFAULT_DEVICE;
+  return null;
 }
 
-function saveSelectedDevice(device) {
+function saveSessionDevice(device) {
   try {
-    localStorage.setItem(DEVICE_STORAGE_KEY, device);
+    sessionStorage.setItem(DEVICE_SESSION_STORAGE_KEY, device);
   } catch (error) {
     // Ignore storage failures and keep UI usable.
   }
@@ -106,6 +121,48 @@ function applySelectedDevice(device) {
   const activeSection = sectionElements.find((sectionElement) => sectionElement.classList.contains('active'));
   if (activeSection && activeSection.hidden) {
     showSection('start');
+  }
+}
+
+function getGuideActionTarget(actionElement) {
+  if (selectedDevice === 'mac') {
+    return actionElement.dataset.macHref || '';
+  }
+
+  return actionElement.dataset.iphoneHref || '';
+}
+
+function toggleGuideHelper(actionElement) {
+  const helperId = actionElement.getAttribute('aria-controls');
+  if (!helperId) {
+    return;
+  }
+
+  const helperElement = document.getElementById(helperId);
+  if (!helperElement) {
+    return;
+  }
+
+  const isExpanded = actionElement.getAttribute('aria-expanded') === 'true';
+  actionElement.setAttribute('aria-expanded', String(!isExpanded));
+  helperElement.hidden = isExpanded;
+}
+
+function handleGuideActionClick(actionElement) {
+  if (actionElement.dataset.guideAction === 'toggle-helper') {
+    toggleGuideHelper(actionElement);
+    return;
+  }
+
+  const target = getGuideActionTarget(actionElement);
+  if (!target) {
+    return;
+  }
+
+  try {
+    window.location.assign(target);
+  } catch (error) {
+    // Ignore deep-link failures and keep the guide usable as plain text.
   }
 }
 
@@ -235,7 +292,7 @@ if (menuToggleButton) {
 
 document.addEventListener('click', (event) => {
   const targetElement = event.target.closest(
-    '[data-section-target], [data-pin-section], [data-unpin-section], [data-device-toggle]'
+    '[data-section-target], [data-pin-section], [data-unpin-section], [data-device-toggle], [data-guide-action]'
   );
   if (!targetElement) {
     return;
@@ -243,7 +300,7 @@ document.addEventListener('click', (event) => {
 
   if (targetElement.dataset.deviceToggle) {
     applySelectedDevice(targetElement.dataset.deviceToggle);
-    saveSelectedDevice(targetElement.dataset.deviceToggle);
+    saveSessionDevice(targetElement.dataset.deviceToggle);
     return;
   }
 
@@ -258,12 +315,27 @@ document.addEventListener('click', (event) => {
     return;
   }
 
+  if (targetElement.dataset.guideAction) {
+    handleGuideActionClick(targetElement);
+    return;
+  }
+
   if (targetElement.dataset.unpinSection) {
     unpinSection(targetElement.dataset.unpinSection);
   }
 });
 
-applySelectedDevice(loadSelectedDevice());
+guideActionElements.forEach((actionElement) => {
+  if (!actionElement.dataset.guideAction) {
+    actionElement.dataset.guideAction = 'open-link';
+  }
+});
+
+const sessionDevice = loadSessionDevice();
+const initialDevice = sessionDevice || detectInitialDevice();
+
+applySelectedDevice(initialDevice);
+saveSessionDevice(initialDevice);
 renderPinButtons();
 renderPinnedTopics();
 showSection('start');
